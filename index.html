@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>SIMULACIÓN DE MONTECARLO</h1>
+					<p class="fade-in">Introducción y bienvenida</p>
+					<p class="highlight-red">SMC es una herramienta de pronóstico que usa el azar</p>
+					<p class="highlight-green">para modelar sistemas complejos</p>
+				</section>
+				    
+				<section>
+					<h2>¿Qué es la Simulación de Montecarlo?</h2>
+					<ul>
+						<li class="fade-up">Definición y concepto básico</li>
+						<li class="fade-up">Origen del nombre "Montecarlo"</li>
+						<li class="fade-up">Aplicaciones comunes en diversas industrias</li>
+					</ul>
+				</section>
+				<section>
+					<h2>¿Cómo funciona la Simulación de Montecarlo?</h2>
+					<ul>
+						<li class="fade-up">Generación de variables aleatorias</li>
+						<li class="fade-up">Modelado de incertidumbre y variabilidad</li>
+						<li class="highlight-blue">Iteración múltiple para obtener resultados estadísticos</li>                   
+					</ul>
+				</section>
+				<section>
+					<h2>Pasos para realizar una Simulación de Montecarlo</h2>
+					<ol>
+						<li class="fade-up">Definir el problema y el modelo</li>
+						<li class="fade-up">Identificar las variables de entrada y sus distribuciones</li>
+						<li class="fade-up">Generar muestras aleatorias</li>
+						<li class="fade-up">Ejecutar simulaciones múltiples</li>
+						<li class="fade-up highlight-orange">Analizar los resultados</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ventajas y Desventajas</h2>
+					<div style="display: flex; gap: 40px;">
+						<div>
+							<h3 class="fade-in" style="color: #42f554;">✓ Ventajas</h3>
+							<ul>
+								<li class="fade-up">Modela incertidumbre compleja</li>
+								<li class="fade-up">Flexible y versátil</li>
+								<li class="fade-up">Proporciona distribuciones de resultados</li>
+							</ul>
+						</div>
+						<div>
+							<h3 class="fade-in" style="color: #ff6b6b;">✗ Desventajas</h3>
+							<ul>
+								<li class="fade-up">Requiere mucha computación</li>
+								<li class="fade-up">Requiere datos de entrada precisos</li>
+								<li class="fade-up">Interpretación puede ser compleja</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>Herramientas y Software</h2>
+					<ul>
+						<li class="highlight-blue">Librerías de programación (e.g., NumPy, Pandas, Random en Python)</li>
+						<li class="fade-up">Software popular para SMC (e.g., @RISK, Crystal Ball, MATLAB)</li>
+						<li class="fade-up">Recursos en línea y tutoriales</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ejemplos de Aplicación</h2>
+					<ul>
+						<li class="fade-up">💰 <strong>Finanzas:</strong> valoración de opciones y gestión de riesgos</li>
+						<li class="fade-up">⚙️ <strong>Ingeniería:</strong> análisis de confiabilidad y optimización de diseños</li>
+						<li class="fade-up">🌍 <strong>Ciencias:</strong> modelado climático y estudios epidemiológicos</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Conclusión</h2>
+					<ul>
+						<li class="fade-up">Resumen de puntos clave</li>
+						<li class="fade-up">Importancia de la SMC en la toma de decisiones</li>
+						<li class="grow highlight-green">Recursos adicionales para aprender más</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Preguntas y Respuestas</h2>
+					<p class="fade-in" style="font-size: 2em; margin-top: 50px;">❓</p>
+					<p class="fade-up">Espacio para que la audiencia haga preguntas</p> 	
+					<p class="fade-up">y se discutan puntos adicionales</p> 	
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				transition: 'slide',
+				transitionSpeed: 'default',
+				controls: true,
+				progress: true,
+				center: true,
+				slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
