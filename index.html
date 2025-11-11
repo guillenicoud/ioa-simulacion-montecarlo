@@ -106,35 +106,33 @@
           </ul>
         </section>
 
-        <section data-transition="zoom">
-          <h2>Caso Práctico: Bar Haroldo 🍻</h2>
-          <p>Apliquemos el MMC a un problema de gestión de capacidad.</p>
-          <ul style="width: 80%; margin: 0 auto">
-            <li><strong>Capacidad Máxima:</strong> 20 Mesas</li>
-            <li>
-              <strong>Reservas (R):</strong> Distribución Normal (μ=18, σ=5)
-            </li>
-            <li>
-              <strong>Caídas (C):</strong> Distribución Discreta (Tabla de %
-              fijos)
-            </li>
-          </ul>
-          <p style="color: #ff6b6b; margin-top: 20px">
-            <strong>Meta:</strong> Estimar el riesgo de <i>overbooking</i> con
-            un 2% de error y Z=1.96.
-          </p>
+      <section data-transition="zoom">
+            <h2>Caso Práctico: Bar Haroldo 🍻</h2>
+            <p>Apliquemos el MMC a un problema de gestión de capacidad.</p>
+            <ul style="width: 80%; margin: 0 auto">
+                <li><strong>Capacidad Máxima:</strong> 20 Mesas</li>
+                <li>
+                    <strong>Reservas (R):</strong> Distribución Normal (μ=18, σ=5)
+                </li>
+                <li>
+                    <strong>Caídas (C):</strong> Distribución Discreta (Tabla de % fijos)
+                </li>
+            </ul>
+            <p style="color: #ff6b6b; margin-top: 20px">
+                <strong>Meta:</strong> Estimar el riesgo de <i>overbooking</i> con un 2% de error y Z=1.96.
+            </p>
         </section>
 
         <section>
-          <h2>Paso 1: Modelar (Python)</h2>
-          <p>
-            Definimos las distribuciones de nuestras variables aleatorias con
-            <code>scipy.stats</code>:
-          </p>
+            <h2>Paso 1: Modelar (Python)</h2>
+            <p>
+                Definimos las distribuciones de nuestras variables aleatorias con
+                <code>scipy.stats</code>:
+            </p>
 
-          <pre
-            style="width: 90%; margin: 20px auto"
-          ><code class="language-python" data-line-numbers="1-7">
+            <pre
+                style="width: 90%; margin: 20px auto"
+            ><code class="language-python" data-line-numbers="1-7">
 # Reservas (R)
 dist_R = norm(loc=18, scale=5)
 
@@ -146,169 +144,162 @@ caidas_dist_base = rv_discrete(
     </code></pre>
         </section>
 
-       <section>
-    <h2>Paso 2: La Ecuación de Precisión (N)</h2>
-    <p>Para que el resultado sea confiable (no solo una anécdota), necesitamos un N (número de días) grande.</p>
-    <p>La fórmula estadística para encontrar $N$ es:</p>
-    
-    $$N = \left(\frac{Z \cdot \sigma}{E}\right)^2$$
+        <section>
+            <h2>Paso 2: La Ecuación de Precisión (N)</h2>
+            <p>Para que el resultado sea confiable (no solo una anécdota), necesitamos un N (número de días) grande.</p>
+            <p>La fórmula estadística para encontrar $N$ es:</p>
+            
+            $$N = \left(\frac{Z \cdot \sigma}{E}\right)^2$$
 
-    <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
-        <div>
-            <p style="color: #42f554;">✓ <strong>Z (Confianza):</strong></p>
-            <p>Lo tenemos (1.96)</p>
-        </div>
-        <div>
-            <p style="color: #42f554;">✓ <strong>E (Error):</strong></p>
-            <p>Lo tenemos (2% de la media)</p>
-        </div>
-        <div>
-            <p style="color: #ff6b6b;">✗ <strong>σ (Volatilidad):</strong></p>
-            <p>¡No la conocemos!</p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Paso 2 (Cont.): El Dilema de $\sigma$</h2>
-    <p style="color: #ffc93c; font-size: 1.1em;">
-        Tenemos un dilema: No podemos calcular $N$ sin $\sigma$, ¡pero no podemos medir $\sigma$ sin haber simulado $N$ días!
-    </p>
-
-    <h3 style="margin-top: 40px;">La Solución: La Simulación Piloto</h3>
-    <p>Usamos un truco de dos pasos:</p>
-    
-    <ol style="width: 80%; margin: 20px auto;">
-        <li><strong>Correr un Piloto (N=1000):</strong> Simulamos 1,000 días solo para obtener una <strong>estimación</strong> de la volatilidad ($\sigma$) del sistema.</li>
-        <li style="margin-top: 15px;"><strong>Calcular N Real:</strong> Ahora sí, usamos esa $\sigma$ piloto en la fórmula para encontrar el $N$ final (ej. 1,168 días).</li>
-    </ol>
-</section>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
+                <div>
+                    <p style="color: #42f554;">✓ <strong>Z (Confianza):</strong></p>
+                    <p>Lo tenemos (1.96)</p>
+                </div>
+                <div>
+                    <p style="color: #42f554;">✓ <strong>E (Error):</strong></p>
+                    <p>Lo tenemos (2% de la media)</p>
+                </div>
+                <div>
+                    <p style="color: #ff6b6b;">✗ <strong>σ (Volatilidad):</strong></p>
+                    <p>¡No la conocemos!</p>
+                </div>
+            </div>
+        </section>
 
         <section>
-          <h2>Paso 3: Simulación Masiva (El Bucle)</h2>
-          <p>
-            Ahora simulamos los <strong>XXXX</strong> días que calculamos en el
-            Paso 2.
-          </p>
-          <p>
-            Generamos $N$ valores aleatorios para R y C, y calculamos la
-            Ocupación Neta (O):
-          </p>
+            <h2>Paso 2 (Cont.): El Dilema de $\sigma$</h2>
+            <p style="color: #ffc93c; font-size: 1.1em;">
+                Tenemos un dilema: No podemos calcular $N$ sin $\sigma$, ¡pero no podemos medir $\sigma$ sin haber simulado $N$ días!
+            </p>
 
-          <pre
-            style="width: 90%; margin: 20px auto"
-          ><code class="language-python" data-line-numbers="1-4">
+            <h3 style="margin-top: 40px;">La Solución: La Simulación Piloto</h3>
+            <p>Usamos un truco de dos pasos:</p>
+            
+            <ol style="width: 80%; margin: 20px auto;">
+                <li><strong>Correr un Piloto (N=1000):</strong> Simulamos 1,000 días solo para obtener una <strong>estimación</strong> de la volatilidad ($\sigma$).</li>
+                <li style="margin-top: 15px;"><strong>Calcular N Real:</strong> Usamos esa $\sigma$ piloto (≈ 5.08) en la fórmula para encontrar el <strong>N final = 1168 días</strong>.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Paso 3: Simulación Masiva (El Bucle)</h2>
+            <p>
+                Ahora simulamos los <strong>1168</strong> días que calculamos en el
+                Paso 2.
+            </p>
+            <p>
+                Generamos $N$ valores aleatorios para R y C, y calculamos la
+                Ocupación Neta (O):
+            </p>
+
+            <pre
+                style="width: 90%; margin: 20px auto"
+            ><code class="language-python" data-line-numbers="1-4">
 # Generar N días de R y C
 reservas_final = dist_R.rvs(size=N_DIAS_SIMULADOS)
 caidas_final = caidas_dist_base.rvs(size=N_DIAS_SIMULADOS)
 ocupacion_neta = np.maximum(0, np.round(reservas_final)) - caidas_final
     </code></pre>
         </section>
+<section>
+            <h2>Paso 4: Resultados Base (Métricas)</h2>
+            <p>
+                Aplicamos la lógica de negocio (Capacidad = 20) para medir el Riesgo (D).
+            </p>
 
-        <section>
-          <h2>Paso 4: Resultados Base (Métricas)</h2>
-          <p>
-            Aplicamos la lógica de negocio (Capacidad = 20) para medir el Riesgo
-            (D).
-          </p>
-
-          <pre
-            style="width: 90%; margin: 20px auto"
-          ><code class="language-python" data-line-numbers="1-5">
+            <pre
+                style="width: 90%; margin: 20px auto"
+            ><code class="language-python" data-line-numbers="1-5">
 # Calcular Métrica de Riesgo (D)
+# D = max(0, Ocupación Neta - 20)
 D_base = np.maximum(0, ocupacion_neta - CAPACIDAD_MAXIMA)
 
 # Almacenar en Pandas para análisis
 df_simulacion = pd.DataFrame({'Riesgo_D': D_base})
     </code></pre>
+        </section>
+        
+        <section>
+            <h2>Paso 4 (Cont.): Conclusión Base</h2>
+            <p>
+                El promedio final del MMC nos revela el riesgo diario del Bar Haroldo:
+            </p>
 
-          <p style="color: #42f554; margin-top: 20px">
-            <strong>Resultado Base:</strong> El bar rechaza
-            <strong>[Y.YY]</strong> mesas/día y tiene un riesgo de overbooking
-            del <strong>[XX.XX]%</strong>.
-          </p>
+            <ul style="width: 80%; margin: 30px auto; text-align: left; font-size: 1.2em;">
+                <li><strong>Media de Riesgo (μ_D):</strong> El bar rechaza <strong>0.56</strong> mesas/día.</li>
+                <li style="color: #ff6b6b; margin-top: 10px;"><strong>Riesgo de Overbooking:</strong> Hay un <strong>16.63%</strong> de probabilidad de exceder la capacidad un día cualquiera.</li>
+            </ul>
+
+            <p style="color: #ffc93c; margin-top: 30px;">
+                Esta es la métrica que el dueño usa para tomar decisiones.
+            </p>
         </section>
 
         <section>
-          <h2>Paso 4 (Cont.): Visualización del Riesgo Base</h2>
-          <p>Un histograma nos muestra la <i>distribución</i> del riesgo.</p>
-
-          <img
-            src="grafico_escenario_base.png"
-            alt="Histograma del Escenario Base"
-            style="max-height: 500px; margin-top: 20px"
-          />
-          <p style="color: #ffc93c">
-            Vemos que hay días en los que el bar debe rechazar 5 o más mesas.
-          </p>
+            <h2>Paso 5: Análisis de Sensibilidad (La Decisión)</h2>
+            <p>
+                Aquí es donde el MMC genera valor. Probamos escenarios de negocio:
+            </p>
+            <ul>
+                <li>
+                    <strong>Escenario D:</strong> "Mejor Gestión" (C↓)
+                </li>
+                <li>
+                    <strong>Escenario E:</strong> "Crecimiento Agresivo" (μ=22)
+                </li>
+            </ul>
+            <p>
+                La simulación nos da una tabla comparativa de riesgo (el
+                <code>df_resumen</code> de Pandas):
+            </p>
         </section>
 
         <section>
-          <h2>Paso 5: Análisis de Sensibilidad (La Decisión)</h2>
-          <p>
-            Aquí es donde el MMC genera valor. Probamos escenarios de negocio:
-          </p>
-          <ul>
-            <li>
-              <strong>Escenario D:</strong> ¿Qué pasa si "Mejoramos la Gestión"
-              (menos caídas)?
-            </li>
-            <li>
-              <strong>Escenario E:</strong> ¿Qué pasa si "Crecemos
-              Agresivamente" (μ=22)?
-            </li>
-          </ul>
-          <p>
-            La simulación nos da una tabla comparativa de riesgo (el
-            <code>df_resumen</code> de Pandas):
-          </p>
-        </section>
-
-        <section>
-          <h2>Paso 5 (Cont.): Tabla Comparativa de Riesgo</h2>
-          <p>Resultados de <code>df_resumen</code>:</p>
-          <pre><code class="language-plaintext" style="font-size: 0.65em; line-height: 1.4em;">
-                                Media Overbooking (D)  Prob. Overbooking (%)
-Escenario Base (μ=18, C Base)                   [Y.YY]                [XX.XX]
-Escenario D (μ=18, C Mejorada)                  [A.AA]                [BB.BB]
-Escenario E (μ=22, C Mejorada)                  [C.CC]                [DD.DD]
+            <h2>Paso 5 (Cont.): Tabla Comparativa de Riesgo</h2>
+            <p>Resultados de <code>df_resumen</code>:</p>
+            <pre><code class="language-plaintext" style="font-size: 0.65em; line-height: 1.4em;">
+                                Media Overbooking (D)  Prob. Overbooking (%)
+Escenario Base (μ=18, C Base)                   0.5627                16.6341
+Escenario D (μ=18, C Mejorada)                  1.0506                27.4829
+Escenario E (μ=22, C Mejorada)                  4.2798                85.3938
             </code></pre>
 
-          <div
-            style="
-              background: #333;
-              border-radius: 10px;
-              padding: 15px;
-              margin-top: 20px;
-            "
-          >
-            <h4 style="color: #42f554">Conclusión de Negocio</h4>
-            <p>
-              El Escenario D (Mejor Gestión) <strong>aumenta</strong> el riesgo
-              (de XX% a BB%). Las caídas eran un "amortiguador".
-            </p>
-            <p style="margin-top: 10px">
-              <strong>Decisión:</strong> Si el bar mejora la gestión, debe
-              <strong>DISMINUIR</strong> su media de reservas (μ) para
-              compensar.
-            </p>
-          </div>
+            <div
+                style="
+                    background: #333;
+                    border-radius: 10px;
+                    padding: 15px;
+                    margin-top: 20px;
+                "
+            >
+                <h4 style="color: #42f554">Conclusión de Negocio</h4>
+                <p>
+                    El Escenario D (Mejor Gestión) <strong>aumenta</strong> el riesgo
+                    (de 16.6% a 27.5%). Las caídas eran un "amortiguador".
+                </p>
+                <p style="margin-top: 10px">
+                    <strong>Decisión:</strong> Si el bar mejora la gestión, debe
+                    <strong>DISMINUIR</strong> su media de reservas (μ) para
+                    compensar.
+                </p>
+            </div>
         </section>
 
         <section>
-          <h2>Paso 5 (Cont.): Visualización de Escenarios</h2>
-          <p>La comparación visual del riesgo (gráfico KDE) lo deja claro:</p>
+            <h2>Paso 5 (Cont.): Visualización de Escenarios</h2>
+            <p>La comparación visual del riesgo (gráfico KDE) lo deja claro:</p>
 
-          <img
-            src="grafico_comparativo.png"
-            alt="Comparación de Escenarios"
-            style="max-height: 550px; margin-top: 20px"
-          />
+            <img
+                src="grafico_comparativo.png"
+                alt="Comparación de Escenarios"
+                style="max-height: 550px; margin-top: 20px"
+            />
 
-          <p>
-            El Escenario D (verde) aumenta el riesgo. El Escenario E (rojo) es
-            insostenible.
-          </p>
+            <p>
+                El Escenario D (verde) aumenta el riesgo. El Escenario E (rojo) es
+                insostenible.
+            </p>
         </section>
 
         <section>
