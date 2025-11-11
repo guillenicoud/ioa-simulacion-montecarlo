@@ -1,138 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
 
-    <title>reveal.js</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="stylesheet" href="dist/reset.css" />
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/black.css" />
+  <title>reveal.js</title>
 
-    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/black.css" />
 
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
-	<script src="plugin/math/math.js"></script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1>SIMULACIÓN DE MONTECARLO</h1>
-          <p>Introducción y bienvenida</p>
-          <p>SMC es una herramienta de pronóstico que usa el azar</p>
-          <p>para modelar sistemas complejos</p>
-        </section>
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
-        <section>
-          <h2>¿Qué es la Simulación de Montecarlo?</h2>
-          <ul>
-            <li>Definición y concepto básico</li>
-            <li>Origen del nombre "Montecarlo"</li>
-            <li>Aplicaciones comunes en diversas industrias</li>
-          </ul>
-        </section>
-        <section>
-          <h2>¿Cómo funciona la Simulación de Montecarlo?</h2>
-          <ul>
-            <li>Generación de variables aleatorias</li>
-            <li>Modelado de incertidumbre y variabilidad</li>
-            <li>Iteración múltiple para obtener resultados estadísticos</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Pasos para realizar una Simulación de Montecarlo</h2>
-          <ol>
-            <li>Definir el problema y el modelo</li>
-            <li>Identificar las variables de entrada y sus distribuciones</li>
-            <li>Generar muestras aleatorias</li>
-            <li>Ejecutar simulaciones múltiples</li>
-            <li>Analizar los resultados</li>
-          </ol>
-        </section>
-        <section>
-          <h2>Ventajas y Desventajas</h2>
-          <div style="display: flex; gap: 40px">
-            <div>
-              <h3 style="color: #42f554">✓ Ventajas</h3>
-              <ul>
-                <li>Modela incertidumbre compleja</li>
-                <li>Flexible y versátil</li>
-                <li>Proporciona distribuciones de resultados</li>
-              </ul>
-            </div>
-            <div>
-              <h3 style="color: #ff6b6b">✗ Desventajas</h3>
-              <ul>
-                <li>Requiere mucha computación</li>
-                <li>Requiere datos de entrada precisos</li>
-                <li>Interpretación puede ser compleja</li>
-              </ul>
-            </div>
+  <script src="plugin/math/math.js"></script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>SIMULACIÓN DE MONTECARLO</h1>
+        <p>Introducción y bienvenida</p>
+        <p>SMC es una herramienta de pronóstico que usa el azar</p>
+        <p>para modelar sistemas complejos</p>
+      </section>
+
+      <section>
+        <h2>¿Qué es la Simulación de Montecarlo?</h2>
+        <ul>
+          <li>Definición y concepto básico</li>
+          <li>Origen del nombre "Montecarlo"</li>
+          <li>Aplicaciones comunes en diversas industrias</li>
+        </ul>
+      </section>
+      <section>
+        <h2>¿Cómo funciona la Simulación de Montecarlo?</h2>
+        <ul>
+          <li>Generación de variables aleatorias</li>
+          <li>Modelado de incertidumbre y variabilidad</li>
+          <li>Iteración múltiple para obtener resultados estadísticos</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Pasos para realizar una Simulación de Montecarlo</h2>
+        <ol>
+          <li>Definir el problema y el modelo</li>
+          <li>Identificar las variables de entrada y sus distribuciones</li>
+          <li>Generar muestras aleatorias</li>
+          <li>Ejecutar simulaciones múltiples</li>
+          <li>Analizar los resultados</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Ventajas y Desventajas</h2>
+        <div style="display: flex; gap: 40px">
+          <div>
+            <h3 style="color: #42f554">✓ Ventajas</h3>
+            <ul>
+              <li>Modela incertidumbre compleja</li>
+              <li>Flexible y versátil</li>
+              <li>Proporciona distribuciones de resultados</li>
+            </ul>
           </div>
-        </section>
-        <section>
-          <h2>Herramientas y Software</h2>
-          <ul>
-            <li>
-              Librerías de programación (e.g., NumPy, Pandas, Random en Python)
-            </li>
-            <li>
-              Software popular para SMC (e.g., @RISK, Crystal Ball, MATLAB)
-            </li>
-            <li>Recursos en línea y tutoriales</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Ejemplos de Aplicación</h2>
-          <ul>
-            <li>
-              💰 <strong>Finanzas:</strong> valoración de opciones y gestión de
-              riesgos
-            </li>
-            <li>
-              ⚙️ <strong>Ingeniería:</strong> análisis de confiabilidad y
-              optimización de diseños
-            </li>
-            <li>
-              🌍 <strong>Ciencias:</strong> modelado climático y estudios
-              epidemiológicos
-            </li>
-          </ul>
-        </section>
+          <div>
+            <h3 style="color: #ff6b6b">✗ Desventajas</h3>
+            <ul>
+              <li>Requiere mucha computación</li>
+              <li>Requiere datos de entrada precisos</li>
+              <li>Interpretación puede ser compleja</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Herramientas y Software</h2>
+        <ul>
+          <li>
+            Librerías de programación (e.g., NumPy, Pandas, Random en Python)
+          </li>
+          <li>
+            Software popular para SMC (e.g., @RISK, Crystal Ball, MATLAB)
+          </li>
+          <li>Recursos en línea y tutoriales</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Ejemplos de Aplicación</h2>
+        <ul>
+          <li>
+            💰 <strong>Finanzas:</strong> valoración de opciones y gestión de
+            riesgos
+          </li>
+          <li>
+            ⚙️ <strong>Ingeniería:</strong> análisis de confiabilidad y
+            optimización de diseños
+          </li>
+          <li>
+            🌍 <strong>Ciencias:</strong> modelado climático y estudios
+            epidemiológicos
+          </li>
+        </ul>
+      </section>
 
       <section data-transition="zoom">
-            <h2>Caso Práctico: Bar Haroldo 🍻</h2>
-            <p>Apliquemos el MMC a un problema de gestión de capacidad.</p>
-            <ul style="width: 80%; margin: 0 auto">
-                <li><strong>Capacidad Máxima:</strong> 20 Mesas</li>
-                <li>
-                    <strong>Reservas (R):</strong> Distribución Normal (μ=18, σ=5)
-                </li>
-                <li>
-                    <strong>Caídas (C):</strong> Distribución Discreta (Tabla de % fijos)
-                </li>
-            </ul>
-            <p style="color: #ff6b6b; margin-top: 20px">
-                <strong>Meta:</strong> Estimar el riesgo de <i>overbooking</i> con un 2% de error y Z=1.96.
-            </p>
-        </section>
+        <h2>Caso Práctico: Bar Haroldo 🍻</h2>
+        <p>Apliquemos el MMC a un problema de gestión de capacidad.</p>
+        <ul style="width: 80%; margin: 0 auto">
+          <li><strong>Capacidad Máxima:</strong> 20 Mesas</li>
+          <li>
+            <strong>Reservas (R):</strong> Distribución Normal (μ=18, σ=5)
+          </li>
+          <li>
+            <strong>Caídas (C):</strong> Distribución Discreta (Tabla de %
+            fijos)
+          </li>
+        </ul>
+        <p style="color: #ff6b6b; margin-top: 20px">
+          <strong>Meta:</strong> Estimar el riesgo de <i>overbooking</i> con
+          un 2% de error y Z=1.96.
+        </p>
+      </section>
 
-        <section>
-            <h2>Paso 1: Modelar (Python)</h2>
-            <p>
-                Definimos las distribuciones de nuestras variables aleatorias con
-                <code>scipy.stats</code>:
-            </p>
+      <section>
+        <h2>Paso 1: Modelar (Python)</h2>
+        <p>
+          Definimos las distribuciones de nuestras variables aleatorias con
+          <code>scipy.stats</code>:
+        </p>
 
-            <pre
-                style="width: 90%; margin: 20px auto"
-            ><code class="language-python" data-line-numbers="1-7">
+        <pre style="width: 90%; margin: 20px auto"><code class="language-python" data-line-numbers="1-7">
 # Reservas (R)
 dist_R = norm(loc=18, scale=5)
 
@@ -142,75 +141,110 @@ caidas_dist_base = rv_discrete(
             [0.4, 0.1, 0.3, 0.2])
 )
     </code></pre>
-        </section>
+      </section>
 
-        <section>
-            <h2>Paso 2: La Ecuación de Precisión (N)</h2>
-            <p>Para que el resultado sea confiable (no solo una anécdota), necesitamos un N (número de días) grande.</p>
-            <p>La fórmula estadística para encontrar $N$ es:</p>
-            
-            $$N = \left(\frac{Z \cdot \sigma}{E}\right)^2$$
+      <section>
+        <h2>Paso 2: Precisión y Cálculo de N</h2>
+        <p>
+          Para garantizar un resultado confiable, calculamos el $N$ (días)
+          requerido:
+        </p>
 
-            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
-                <div>
-                    <p style="color: #42f554;">✓ <strong>Z (Confianza):</strong></p>
-                    <p>Lo tenemos (1.96)</p>
-                </div>
-                <div>
-                    <p style="color: #42f554;">✓ <strong>E (Error):</strong></p>
-                    <p>Lo tenemos (2% de la media)</p>
-                </div>
-                <div>
-                    <p style="color: #ff6b6b;">✗ <strong>σ (Volatilidad):</strong></p>
-                    <p>¡No la conocemos!</p>
-                </div>
+        <div style="
+              display: flex;
+              align-items: flex-start;
+              gap: 20px;
+              margin-top: 20px;
+            ">
+          <div style="flex: 1; text-align: center">
+            <p style="font-weight: bold; margin-bottom: 10px">
+              La Ecuación de Precisión:
+            </p>
+            <div style="
+                  width: fit-content;
+                  font-size: 1.6em;
+                  border: 2px solid #333;
+                  padding: 10px;
+                  border-radius: 8px;
+                  display: inline-block;
+                ">
+              $$N = \left(\frac{Z \cdot \sigma}{E}\right)^2$$
             </div>
-        </section>
+          </div>
 
-        <section>
-            <h2>Paso 2 (Cont.): El Dilema de $\sigma$</h2>
-            <p style="color: #ffc93c; font-size: 1.1em;">
-                Tenemos un dilema: No podemos calcular $N$ sin $\sigma$, ¡pero no podemos medir $\sigma$ sin haber simulado $N$ días!
-            </p>
+          <div style="
+                flex: 1;
+                text-align: left;
+                font-size: 0.8em;
+                line-height: 1.3;
+              ">
+            <ul style="list-style: disc; margin: 0; padding-left: 20px">
+              <li>
+                Z (Confianza 96%) y E (Error 2%) son parámetros conocidos.
+              </li>
+              <li style="color: #ff6b6b; margin-top: 5px">
+                El Dilema: No conocemos $\sigma$ (Volatilidad) del
+                sistema.
+              </li>
+              <li style="color: #ffc93c; margin-top: 10px">
+                Solución: Ejecutamos una Simulación Piloto (N=1000)
+                para estimar $\sigma$ y luego calculamos el $N$ final.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-            <h3 style="margin-top: 40px;">La Solución: La Simulación Piloto</h3>
-            <p>Usamos un truco de dos pasos:</p>
-            
-            <ol style="width: 80%; margin: 20px auto;">
-                <li><strong>Correr un Piloto (N=1000):</strong> Simulamos 1,000 días solo para obtener una <strong>estimación</strong> de la volatilidad ($\sigma$).</li>
-                <li style="margin-top: 15px;"><strong>Calcular N Real:</strong> Usamos esa $\sigma$ piloto (≈ 5.08) en la fórmula para encontrar el <strong>N final = 1168 días</strong>.</li>
-            </ol>
-        </section>
+      <section>
+        <h2>Paso 2 (Cont.): El Dilema de $\sigma$</h2>
+        <p style="color: #ffc93c; font-size: 1.1em">
+          Tenemos un dilema: No podemos calcular $N$ sin $\sigma$, ¡pero no
+          podemos medir $\sigma$ sin haber simulado $N$ días!
+        </p>
 
-        <section>
-            <h2>Paso 3: Simulación Masiva (El Bucle)</h2>
-            <p>
-                Ahora simulamos los <strong>1168</strong> días que calculamos en el
-                Paso 2.
-            </p>
-            <p>
-                Generamos $N$ valores aleatorios para R y C, y calculamos la
-                Ocupación Neta (O):
-            </p>
+        <h3 style="margin-top: 40px">La Solución: La Simulación Piloto</h3>
+        <p>Usamos un truco de dos pasos:</p>
 
-            <pre
-                style="width: 90%; margin: 20px auto"
-            ><code class="language-python" data-line-numbers="1-4">
+        <ol style="width: 80%; margin: 20px auto">
+          <li>
+            <strong>Correr un Piloto (N=1000):</strong> Simulamos 1,000 días
+            solo para obtener una <strong>estimación</strong> de la
+            volatilidad ($\sigma$).
+          </li>
+          <li style="margin-top: 15px">
+            <strong>Calcular N Real:</strong> Usamos esa $\sigma$ piloto (≈
+            5.08) en la fórmula para encontrar el
+            <strong>N final = 1168 días</strong>.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Paso 3: Simulación Masiva (El Bucle)</h2>
+        <p>
+          Ahora simulamos los <strong>1168</strong> días que calculamos en el
+          Paso 2.
+        </p>
+        <p>
+          Generamos $N$ valores aleatorios para R y C, y calculamos la
+          Ocupación Neta (O):
+        </p>
+
+        <pre style="width: 90%; margin: 20px auto"><code class="language-python" data-line-numbers="1-4">
 # Generar N días de R y C
 reservas_final = dist_R.rvs(size=N_DIAS_SIMULADOS)
 caidas_final = caidas_dist_base.rvs(size=N_DIAS_SIMULADOS)
 ocupacion_neta = np.maximum(0, np.round(reservas_final)) - caidas_final
     </code></pre>
-        </section>
-<section>
-            <h2>Paso 4: Resultados Base (Métricas)</h2>
-            <p>
-                Aplicamos la lógica de negocio (Capacidad = 20) para medir el Riesgo (D).
-            </p>
+      </section>
+      <section>
+        <h2>Paso 4: Resultados Base (Métricas)</h2>
+        <p>
+          Aplicamos la lógica de negocio (Capacidad = 20) para medir el Riesgo
+          (D).
+        </p>
 
-            <pre
-                style="width: 90%; margin: 20px auto"
-            ><code class="language-python" data-line-numbers="1-5">
+        <pre style="width: 90%; margin: 20px auto"><code class="language-python" data-line-numbers="1-5">
 # Calcular Métrica de Riesgo (D)
 # D = max(0, Ocupación Neta - 20)
 D_base = np.maximum(0, ocupacion_neta - CAPACIDAD_MAXIMA)
@@ -218,127 +252,103 @@ D_base = np.maximum(0, ocupacion_neta - CAPACIDAD_MAXIMA)
 # Almacenar en Pandas para análisis
 df_simulacion = pd.DataFrame({'Riesgo_D': D_base})
     </code></pre>
-        </section>
-        
-        <section>
-            <h2>Paso 4 (Cont.): Conclusión Base</h2>
-            <p>
-                El promedio final del MMC nos revela el riesgo diario del Bar Haroldo:
-            </p>
+      </section>
 
-            <ul style="width: 80%; margin: 30px auto; text-align: left; font-size: 1.2em;">
-                <li><strong>Media de Riesgo (μ_D):</strong> El bar rechaza <strong>0.56</strong> mesas/día.</li>
-                <li style="color: #ff6b6b; margin-top: 10px;"><strong>Riesgo de Overbooking:</strong> Hay un <strong>16.63%</strong> de probabilidad de exceder la capacidad un día cualquiera.</li>
-            </ul>
+      <section>
+        <h2>Paso 4 (Cont.): Conclusión Base</h2>
+        <p>
+          El promedio final del MMC nos revela el riesgo diario del Bar
+          Haroldo:
+        </p>
 
-            <p style="color: #ffc93c; margin-top: 30px;">
-                Esta es la métrica que el dueño usa para tomar decisiones.
-            </p>
-        </section>
+        <ul style="
+              width: 80%;
+              margin: 30px auto;
+              text-align: left;
+              font-size: 1.2em;
+            ">
+          <li>
+            <strong>Media de Riesgo (μ_D):</strong> El bar rechaza
+            <strong>0.56</strong> mesas/día.
+          </li>
+          <li style="color: #ff6b6b; margin-top: 10px">
+            <strong>Riesgo de Overbooking:</strong> Hay un
+            <strong>16.63%</strong> de probabilidad de exceder la capacidad un
+            día cualquiera.
+          </li>
+        </ul>
 
-        <section>
-            <h2>Paso 5: Análisis de Sensibilidad (La Decisión)</h2>
-            <p>
-                Aquí es donde el MMC genera valor. Probamos escenarios de negocio:
-            </p>
-            <ul>
-                <li>
-                    <strong>Escenario D:</strong> "Mejor Gestión" (C↓)
-                </li>
-                <li>
-                    <strong>Escenario E:</strong> "Crecimiento Agresivo" (μ=22)
-                </li>
-            </ul>
-            <p>
-                La simulación nos da una tabla comparativa de riesgo (el
-                <code>df_resumen</code> de Pandas):
-            </p>
-        </section>
+        <p style="color: #ffc93c; margin-top: 30px">
+          Esta es la métrica que el dueño usa para tomar decisiones.
+        </p>
+      </section>
 
-        <section>
-            <h2>Paso 5 (Cont.): Tabla Comparativa de Riesgo</h2>
-            <p>Resultados de <code>df_resumen</code>:</p>
-            <pre><code class="language-plaintext" style="font-size: 0.65em; line-height: 1.4em;">
-                                Media Overbooking (D)  Prob. Overbooking (%)
-Escenario Base (μ=18, C Base)                   0.5627                16.6341
-Escenario D (μ=18, C Mejorada)                  1.0506                27.4829
-Escenario E (μ=22, C Mejorada)                  4.2798                85.3938
-            </code></pre>
+      <section>
+        <h2>Paso 5: Análisis de Sensibilidad (La Decisión)</h2>
+        <p>
+          Aquí es donde el MMC genera valor. Probamos escenarios de negocio:
+        </p>
+        <ul>
+          <li><strong>Escenario D:</strong> "Mejor Gestión" (C↓)</li>
+          <li><strong>Escenario E:</strong> "Crecimiento Agresivo" (μ=22)</li>
+        </ul>
+        <p>
+          La simulación nos da una tabla comparativa de riesgo (el
+          <code>df_resumen</code> de Pandas):
+        </p>
+      </section>
 
-            <div
-                style="
-                    background: #333;
-                    border-radius: 10px;
-                    padding: 15px;
-                    margin-top: 20px;
-                "
-            >
-                <h4 style="color: #42f554">Conclusión de Negocio</h4>
-                <p>
-                    El Escenario D (Mejor Gestión) <strong>aumenta</strong> el riesgo
-                    (de 16.6% a 27.5%). Las caídas eran un "amortiguador".
-                </p>
-                <p style="margin-top: 10px">
-                    <strong>Decisión:</strong> Si el bar mejora la gestión, debe
-                    <strong>DISMINUIR</strong> su media de reservas (μ) para
-                    compensar.
-                </p>
-            </div>
-        </section>
+      <section>
+        <h2>Paso 5 (Cont.): Visualización de Escenarios</h2>
+        <p>La comparación visual del riesgo (gráfico KDE) lo deja claro:</p>
 
-        <section>
-            <h2>Paso 5 (Cont.): Visualización de Escenarios</h2>
-            <p>La comparación visual del riesgo (gráfico KDE) lo deja claro:</p>
+        <img src="grafico_comparativo.png" alt="Comparación de Escenarios"
+          style="max-height: 550px; margin-top: 20px" />
 
-            <img
-                src="grafico_comparativo.png"
-                alt="Comparación de Escenarios"
-                style="max-height: 550px; margin-top: 20px"
-            />
+        <p>
+          El Escenario D (verde) aumenta el riesgo. El Escenario E (rojo) es
+          insostenible.
+        </p>
+      </section>
 
-            <p>
-                El Escenario D (verde) aumenta el riesgo. El Escenario E (rojo) es
-                insostenible.
-            </p>
-        </section>
-
-        <section>
-          <h2>Conclusión</h2>
-          <ul>
-            <li>Resumen de puntos clave</li>
-            <li>Importancia de la SMC en la toma de decisiones</li>
-            <li>Recursos adicionales para aprender más</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Preguntas y Respuestas</h2>
-          <p style="font-size: 2em; margin-top: 50px">❓</p>
-          <p>Espacio para que la audiencia haga preguntas</p>
-          <p>y se discutan puntos adicionales</p>
-        </section>
-      </div>
+      <section>
+        <h2>Conclusión</h2>
+        <ul>
+          <li>Resumen de puntos clave</li>
+          <li>Importancia de la SMC en la toma de decisiones</li>
+          <li>Recursos adicionales para aprender más</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Preguntas y Respuestas</h2>
+        <p style="font-size: 2em; margin-top: 50px">❓</p>
+        <p>Espacio para que la audiencia haga preguntas</p>
+        <p>y se discutan puntos adicionales</p>
+      </section>
     </div>
+  </div>
 
-    <script src="dist/reveal.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script src="plugin/markdown/markdown.js"></script>
-    <script src="plugin/highlight/highlight.js"></script>
-    <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
-      Reveal.initialize({
-        hash: true,
-        transition: "slide",
-        transitionSpeed: "default",
-        controls: true,
-        progress: true,
-        center: true,
-        slideNumber: true,
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      transition: "slide",
+      transitionSpeed: "default",
+      controls: true,
+      progress: true,
+      center: true,
+      slideNumber: true,
 
-        // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
-      });
-    </script>
-  </body>
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
+    });
+  </script>
+</body>
+
 </html>
