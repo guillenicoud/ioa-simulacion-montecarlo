@@ -1,129 +1,339 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>SIMULACIÓN DE MONTECARLO</h1>
+          <p>Introducción y bienvenida</p>
+          <p>SMC es una herramienta de pronóstico que usa el azar</p>
+          <p>para modelar sistemas complejos</p>
+        </section>
 
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>SIMULACIÓN DE MONTECARLO</h1>
-					<p class="fade-in">Introducción y bienvenida</p>
-					<p class="highlight-red">SMC es una herramienta de pronóstico que usa el azar</p>
-					<p class="highlight-green">para modelar sistemas complejos</p>
-				</section>
-				    
-				<section>
-					<h2>¿Qué es la Simulación de Montecarlo?</h2>
-					<ul>
-						<li class="fade-up">Definición y concepto básico</li>
-						<li class="fade-up">Origen del nombre "Montecarlo"</li>
-						<li class="fade-up">Aplicaciones comunes en diversas industrias</li>
-					</ul>
-				</section>
-				<section>
-					<h2>¿Cómo funciona la Simulación de Montecarlo?</h2>
-					<ul>
-						<li class="fade-up">Generación de variables aleatorias</li>
-						<li class="fade-up">Modelado de incertidumbre y variabilidad</li>
-						<li class="highlight-blue">Iteración múltiple para obtener resultados estadísticos</li>                   
-					</ul>
-				</section>
-				<section>
-					<h2>Pasos para realizar una Simulación de Montecarlo</h2>
-					<ol>
-						<li class="fade-up">Definir el problema y el modelo</li>
-						<li class="fade-up">Identificar las variables de entrada y sus distribuciones</li>
-						<li class="fade-up">Generar muestras aleatorias</li>
-						<li class="fade-up">Ejecutar simulaciones múltiples</li>
-						<li class="fade-up highlight-orange">Analizar los resultados</li>
-					</ol>
-				</section>
-				<section>
-					<h2>Ventajas y Desventajas</h2>
-					<div style="display: flex; gap: 40px;">
-						<div>
-							<h3 class="fade-in" style="color: #42f554;">✓ Ventajas</h3>
-							<ul>
-								<li class="fade-up">Modela incertidumbre compleja</li>
-								<li class="fade-up">Flexible y versátil</li>
-								<li class="fade-up">Proporciona distribuciones de resultados</li>
-							</ul>
-						</div>
-						<div>
-							<h3 class="fade-in" style="color: #ff6b6b;">✗ Desventajas</h3>
-							<ul>
-								<li class="fade-up">Requiere mucha computación</li>
-								<li class="fade-up">Requiere datos de entrada precisos</li>
-								<li class="fade-up">Interpretación puede ser compleja</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<h2>Herramientas y Software</h2>
-					<ul>
-						<li class="highlight-blue">Librerías de programación (e.g., NumPy, Pandas, Random en Python)</li>
-						<li class="fade-up">Software popular para SMC (e.g., @RISK, Crystal Ball, MATLAB)</li>
-						<li class="fade-up">Recursos en línea y tutoriales</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Ejemplos de Aplicación</h2>
-					<ul>
-						<li class="fade-up">💰 <strong>Finanzas:</strong> valoración de opciones y gestión de riesgos</li>
-						<li class="fade-up">⚙️ <strong>Ingeniería:</strong> análisis de confiabilidad y optimización de diseños</li>
-						<li class="fade-up">🌍 <strong>Ciencias:</strong> modelado climático y estudios epidemiológicos</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Conclusión</h2>
-					<ul>
-						<li class="fade-up">Resumen de puntos clave</li>
-						<li class="fade-up">Importancia de la SMC en la toma de decisiones</li>
-						<li class="grow highlight-green">Recursos adicionales para aprender más</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Preguntas y Respuestas</h2>
-					<p class="fade-in" style="font-size: 2em; margin-top: 50px;">❓</p>
-					<p class="fade-up">Espacio para que la audiencia haga preguntas</p> 	
-					<p class="fade-up">y se discutan puntos adicionales</p> 	
-				</section>
-			</div>
-		</div>
+        <section>
+          <h2>¿Qué es la Simulación de Montecarlo?</h2>
+          <ul>
+            <li>Definición y concepto básico</li>
+            <li>Origen del nombre "Montecarlo"</li>
+            <li>Aplicaciones comunes en diversas industrias</li>
+          </ul>
+        </section>
+        <section>
+          <h2>¿Cómo funciona la Simulación de Montecarlo?</h2>
+          <ul>
+            <li>Generación de variables aleatorias</li>
+            <li>Modelado de incertidumbre y variabilidad</li>
+            <li>Iteración múltiple para obtener resultados estadísticos</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Pasos para realizar una Simulación de Montecarlo</h2>
+          <ol>
+            <li>Definir el problema y el modelo</li>
+            <li>Identificar las variables de entrada y sus distribuciones</li>
+            <li>Generar muestras aleatorias</li>
+            <li>Ejecutar simulaciones múltiples</li>
+            <li>Analizar los resultados</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Ventajas y Desventajas</h2>
+          <div style="display: flex; gap: 40px">
+            <div>
+              <h3 style="color: #42f554">✓ Ventajas</h3>
+              <ul>
+                <li>Modela incertidumbre compleja</li>
+                <li>Flexible y versátil</li>
+                <li>Proporciona distribuciones de resultados</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="color: #ff6b6b">✗ Desventajas</h3>
+              <ul>
+                <li>Requiere mucha computación</li>
+                <li>Requiere datos de entrada precisos</li>
+                <li>Interpretación puede ser compleja</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Herramientas y Software</h2>
+          <ul>
+            <li>
+              Librerías de programación (e.g., NumPy, Pandas, Random en Python)
+            </li>
+            <li>
+              Software popular para SMC (e.g., @RISK, Crystal Ball, MATLAB)
+            </li>
+            <li>Recursos en línea y tutoriales</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Ejemplos de Aplicación</h2>
+          <ul>
+            <li>
+              💰 <strong>Finanzas:</strong> valoración de opciones y gestión de
+              riesgos
+            </li>
+            <li>
+              ⚙️ <strong>Ingeniería:</strong> análisis de confiabilidad y
+              optimización de diseños
+            </li>
+            <li>
+              🌍 <strong>Ciencias:</strong> modelado climático y estudios
+              epidemiológicos
+            </li>
+          </ul>
+        </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-				transition: 'slide',
-				transitionSpeed: 'default',
-				controls: true,
-				progress: true,
-				center: true,
-				slideNumber: true,
+        <section data-transition="zoom">
+          <h2>Caso Práctico: Bar Haroldo 🍻</h2>
+          <p>Apliquemos el MMC a un problema de gestión de capacidad.</p>
+          <ul style="width: 80%; margin: 0 auto">
+            <li><strong>Capacidad Máxima:</strong> 20 Mesas</li>
+            <li>
+              <strong>Reservas (R):</strong> Distribución Normal (μ=18, σ=5)
+            </li>
+            <li>
+              <strong>Caídas (C):</strong> Distribución Discreta (Tabla de %
+              fijos)
+            </li>
+          </ul>
+          <p style="color: #ff6b6b; margin-top: 20px">
+            <strong>Meta:</strong> Estimar el riesgo de <i>overbooking</i> con
+            un 2% de error y Z=1.96.
+          </p>
+        </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        <section>
+          <h2>Paso 1: Modelar (Python)</h2>
+          <p>
+            Definimos las distribuciones de nuestras variables aleatorias con
+            <code>scipy.stats</code>:
+          </p>
+
+          <pre
+            style="width: 90%; margin: 20px auto"
+          ><code class="language-python" data-line-numbers="1-7">
+# Reservas (R)
+dist_R = norm(loc=18, scale=5)
+
+# Caídas (C)
+caidas_dist_base = rv_discrete(
+    values=([0, 1, 2, 3], 
+            [0.4, 0.1, 0.3, 0.2])
+)
+    </code></pre>
+        </section>
+
+        <section>
+          <h2>Paso 2: Precisión (Cálculo de N)</h2>
+          <p>
+            Necesitamos saber cuántos días ($N$) simular para que sea preciso.
+          </p>
+          <p>
+            Usamos la fórmula: $N = \left(\frac{Z \cdot \sigma}{E}\right)^2$
+          </p>
+          <div
+            style="
+              background: #333;
+              border-radius: 10px;
+              padding: 15px;
+              margin-top: 20px;
+            "
+          >
+            <p style="color: #ffc93c">
+              <strong>Dilema:</strong> ¡No conocemos la volatilidad ($\sigma$)
+              del sistema!
+            </p>
+            <p style="margin-top: 15px">
+              <strong>Solución:</strong> Hacemos una
+              <strong>simulación piloto</strong> (N=1000) solo para estimar
+              $\sigma$ y luego calcular el $N$ real requerido.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Paso 3: Simulación Masiva (El Bucle)</h2>
+          <p>
+            Ahora simulamos los <strong>XXXX</strong> días que calculamos en el
+            Paso 2.
+          </p>
+          <p>
+            Generamos $N$ valores aleatorios para R y C, y calculamos la
+            Ocupación Neta (O):
+          </p>
+
+          <pre
+            style="width: 90%; margin: 20px auto"
+          ><code class="language-python" data-line-numbers="1-4">
+# Generar N días de R y C
+reservas_final = dist_R.rvs(size=N_DIAS_SIMULADOS)
+caidas_final = caidas_dist_base.rvs(size=N_DIAS_SIMULADOS)
+ocupacion_neta = np.maximum(0, np.round(reservas_final)) - caidas_final
+    </code></pre>
+        </section>
+
+        <section>
+          <h2>Paso 4: Resultados Base (Métricas)</h2>
+          <p>
+            Aplicamos la lógica de negocio (Capacidad = 20) para medir el Riesgo
+            (D).
+          </p>
+
+          <pre
+            style="width: 90%; margin: 20px auto"
+          ><code class="language-python" data-line-numbers="1-5">
+# Calcular Métrica de Riesgo (D)
+D_base = np.maximum(0, ocupacion_neta - CAPACIDAD_MAXIMA)
+
+# Almacenar en Pandas para análisis
+df_simulacion = pd.DataFrame({'Riesgo_D': D_base})
+    </code></pre>
+
+          <p style="color: #42f554; margin-top: 20px">
+            <strong>Resultado Base:</strong> El bar rechaza
+            <strong>[Y.YY]</strong> mesas/día y tiene un riesgo de overbooking
+            del <strong>[XX.XX]%</strong>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Paso 4 (Cont.): Visualización del Riesgo Base</h2>
+          <p>Un histograma nos muestra la <i>distribución</i> del riesgo.</p>
+
+          <img
+            src="grafico_escenario_base.png"
+            alt="Histograma del Escenario Base"
+            style="max-height: 500px; margin-top: 20px"
+          />
+          <p style="color: #ffc93c">
+            Vemos que hay días en los que el bar debe rechazar 5 o más mesas.
+          </p>
+        </section>
+
+        <section>
+          <h2>Paso 5: Análisis de Sensibilidad (La Decisión)</h2>
+          <p>
+            Aquí es donde el MMC genera valor. Probamos escenarios de negocio:
+          </p>
+          <ul>
+            <li>
+              <strong>Escenario D:</strong> ¿Qué pasa si "Mejoramos la Gestión"
+              (menos caídas)?
+            </li>
+            <li>
+              <strong>Escenario E:</strong> ¿Qué pasa si "Crecemos
+              Agresivamente" (μ=22)?
+            </li>
+          </ul>
+          <p>
+            La simulación nos da una tabla comparativa de riesgo (el
+            <code>df_resumen</code> de Pandas):
+          </p>
+        </section>
+
+        <section>
+          <h2>Paso 5 (Cont.): Tabla Comparativa de Riesgo</h2>
+          <p>Resultados de <code>df_resumen</code>:</p>
+          <pre><code class="language-plaintext" style="font-size: 0.65em; line-height: 1.4em;">
+                                Media Overbooking (D)  Prob. Overbooking (%)
+Escenario Base (μ=18, C Base)                   [Y.YY]                [XX.XX]
+Escenario D (μ=18, C Mejorada)                  [A.AA]                [BB.BB]
+Escenario E (μ=22, C Mejorada)                  [C.CC]                [DD.DD]
+            </code></pre>
+
+          <div
+            style="
+              background: #333;
+              border-radius: 10px;
+              padding: 15px;
+              margin-top: 20px;
+            "
+          >
+            <h4 style="color: #42f554">Conclusión de Negocio</h4>
+            <p>
+              El Escenario D (Mejor Gestión) <strong>aumenta</strong> el riesgo
+              (de XX% a BB%). Las caídas eran un "amortiguador".
+            </p>
+            <p style="margin-top: 10px">
+              <strong>Decisión:</strong> Si el bar mejora la gestión, debe
+              <strong>DISMINUIR</strong> su media de reservas (μ) para
+              compensar.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Paso 5 (Cont.): Visualización de Escenarios</h2>
+          <p>La comparación visual del riesgo (gráfico KDE) lo deja claro:</p>
+
+          <img
+            src="grafico_comparativo.png"
+            alt="Comparación de Escenarios"
+            style="max-height: 550px; margin-top: 20px"
+          />
+
+          <p>
+            El Escenario D (verde) aumenta el riesgo. El Escenario E (rojo) es
+            insostenible.
+          </p>
+        </section>
+
+        <section>
+          <h2>Conclusión</h2>
+          <ul>
+            <li>Resumen de puntos clave</li>
+            <li>Importancia de la SMC en la toma de decisiones</li>
+            <li>Recursos adicionales para aprender más</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Preguntas y Respuestas</h2>
+          <p style="font-size: 2em; margin-top: 50px">❓</p>
+          <p>Espacio para que la audiencia haga preguntas</p>
+          <p>y se discutan puntos adicionales</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        transition: "slide",
+        transitionSpeed: "default",
+        controls: true,
+        progress: true,
+        center: true,
+        slideNumber: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>

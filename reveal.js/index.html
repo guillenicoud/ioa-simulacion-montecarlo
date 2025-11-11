@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Simulación de Montecarlo: El Poder del Azar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+    <!-- Tema por defecto (lo anulamos con CSS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme"> 
+    <!-- Importar la fuente Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados para el tema oscuro (Dark Mode) */
+       :root {
+            /* Negro Absoluto para el fondo */
+            --background-color: #000000; 
+            /* Blanco Puro para el texto principal */
+            --main-font-color: #ffffff; 
+            /* Azul Brillante para Títulos y resaltados */
+            --heading-color: #00b4d8; 
+            /* Azul muy claro para acentos */
+            --accent-color: #90e0ef; 
+            --main-font: 'Roboto', sans-serif;
+            --code-font: 'Roboto Mono', monospace;
+        }
+
+        /* Fuerza el fondo negro absoluto */
+       .reveal {
+            font-family: var(--main-font);
+            background: var(--background-color);
+        }
+       .reveal .slides {
+            background-color: var(--background-color);
+        }
+       .reveal .slide-background-content {
+            background-color: var(--background-color) !important;
+        }
+
+        /* Colores de texto y títulos */
+       .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--heading-color);
+            text-transform: uppercase;
+        }
+       .reveal p, .reveal li {
+            color: var(--main-font-color);
+        }
+       .reveal .slide-title {
+            color: var(--accent-color); 
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Controles y Navegación */
+       .reveal.controls button {
+            color: var(--heading-color) !important;
+        }
+
+        /* Tablas */
+       .reveal table {
+            font-size: 0.8em;
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+       .reveal table th {
+            background-color: #0077b6; /* Azul Oscuro de Contraste */
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            border: 1px solid #1a1a1a;
+        }
+       .reveal table td {
+            background-color: #1a1a1a; /* Gris muy oscuro, casi negro */
+            padding: 10px;
+            border: 1px solid #333;
+        }
+
+        /* Cajas de Resalte */
+       .highlight-box {
+            background-color: #1a1a1a; /* Gris muy oscuro para la caja */
+            border-left: 8px solid var(--accent-color); /* Borde de Contraste */
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 180, 216, 0.2); /* Sombra sutil azul */
+        }
+       .highlight-box p {
+            color: var(--main-font-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>SIMULACIÓN DE MONTECARLO</h1>
+                <h3 style="color: var(--accent-color);">La Guía Didáctica para Entender el Riesgo con Azar</h3>
+                <p>Cátedra de Investigación Operativa</p>
+                <div style="margin-top: 50px;">
+                    <aside class="notes">
+                        Introducción, bienvenida. Resaltar que SMC es una herramienta de pronóstico que usa el azar para modelar sistemas complejos.
+                    </aside>
+                </div>
+            </section>
+
+            <section>
+                <h2>¿Qué es la Simulación de Montecarlo (SMC)?</h2>
+                <div class="highlight-box">
+                    <p class="slide-title">Concepto Central</p>
+                    <p>Es una técnica computacional que utiliza el **Muestreo Aleatorio Repetido** para obtener resultados numéricos. Se utiliza para modelar sistemas donde la incertidumbre es clave.[1]</p>
+                </div>
+                
+                <div class="r-hstack justify-content-center" style="margin-top: 40px;">
+                    <div class="r-stack">
+                        <p class="fragment fade-in-then-out" style="color: var(--accent-color);">Método Estadístico Aleatorio</p>
+                        <p class="fragment fade-in-then-out" style="color: var(--accent-color);">Origen Histórico: Segunda Guerra Mundial (Física Nuclear) 💣</p>
+                        <p class="fragment fade-in-then-out" style="color: var(--accent-color);">Propósito: Cuantificar Riesgo e Incertidumbre [2, 3]</p>
+                        <p class="fragment fade-in" style="color: var(--accent-color);">Resultado: Una Distribución de Posibles Resultados 📈</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Definir SMC como un método probabilístico que, a diferencia de los modelos determinísticos, genera múltiples resultados. Su origen en el Proyecto Manhattan para simular la difusión de neutrones.
+                </aside>
+            </section>
+            
+            <section>
+                <h2>El Fundamento Matemático</h2>
+                <div class="highlight-box" style="background-color: #000000; border-left: 8px solid var(--heading-color);">
+                    <p class="slide-title">Pilar 1: La Ley de los Grandes Números (LGN)</p>
+                    <p>Justifica la repetición: A medida que el número de simulaciones ($N$) aumenta, el promedio de los resultados generados **converge** al valor esperado teórico del sistema.[4]</p>
+                </div>
+
+                <p class="slide-title fragment fade-in" style="color: var(--heading-color);">Pilar 2: Distribuciones de Probabilidad (El Mapa del Input)</p>
+                <div class="r-hstack justify-content-center fragment fade-in" style="margin-top: 30px;">
+                    <ul style="list-style-type: none; font-size: 0.8em; color: white; text-align: center;">
+                        <li style="color: white;">**Normal:** Valores que se agrupan alrededor de la media (Ej: Rendimiento de acciones).[1]</li>
+                        <li style="color: white;">**Uniforme:** Todos los valores tienen la misma probabilidad en un rango.[5]</li>
+                        <li style="color: white;">**Triangular:** Se usa cuando se tienen solo estimaciones mínima, moda y máxima.[6]</li>
+                    </ul>
+                </div>
+                
+                <aside class="notes">
+                    La LGN es el rigor de Montecarlo. Sin muchas iteraciones, el resultado es inestable. Explicar que las distribuciones son necesarias para modelar la incertidumbre del input.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Flujo de Implementación de Montecarlo (9 Pasos)</h2>
+                <div class="r-stack">
+                    <p class="slide-title fragment fade-in-then-out">Fase I: Diseño y Generación de Inputs (Aleatoriedad)</p>
+                    <p class="slide-title fragment fade-in-then-out">Fase II: Repetición del Proceso (Ejecución Masiva)</p>
+                    <p class="slide-title fragment fade-in">Fase III: Obtención de Resultados (Análisis Estadístico)</p>
+                </div>
+                
+                <div style="margin-top: 40px;">
+                    <table class="fragment fade-in">
+                        <thead>
+                            <tr><th>Fase</th><th>Pasos Clave</th><th>Objetivo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>**I. Inputs**</td><td>1-3. Definir Modelo y Asignar Distribuciones [7, 8]</td><td>Generar valores aleatorios para variables inciertas.</td></tr>
+                            <tr><td>**II. Ejecución**</td><td>4-6. Generar Escenarios y Repetir $N$ veces [9]</td><td>Ejecutar múltiples escenarios para obtener resultados.[4]</td></tr>
+                            <tr><td>**III. Análisis**</td><td>7-9. Calcular $\mu$, $\sigma$, Percentiles y Decidir [8, 1]</td><td>Analizar estadísticamente la distribución final.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <aside class="notes">
+                    Este es el corazón de la presentación. Resaltar la diferencia entre las tres fases. La repetición (Fase II) es lo que convierte la probabilidad en una estimación cuantificable.
+                </aside>
+            </section>
+            
+            <section>
+                <h2>Análisis de la Salida: Riesgo Cuantificado</h2>
+                <div class="r-hstack justify-content-center" style="margin-top: 40px;">
+                    <section class="fragment fade-in-then-out" data-fragment-index="1">
+                        <p class="slide-title">El Promedio ($\mu$)</p>
+                        <img src="https://placehold.co/300x150/0077b6/ffffff?text=Curva+Normal+Media" alt="Curva de distribución normal con media" style="border: 2px solid var(--accent-color); border-radius: 5px;">
+                        <p style="font-size: 0.9em; margin-top: 10px;">Es el **valor esperado** del resultado.[8]</p>
+                    </section>
+                    
+                    <section class="fragment fade-in" data-fragment-index="2">
+                        <p class="slide-title">Desviación Estándar ($\sigma$)</p>
+                        <img src="https://placehold.co/300x150/0077b6/ffffff?text=Curva+Ancha+vs+Angosta" alt="Curva de distribución comparando desviación estándar" style="border: 2px solid var(--accent-color); border-radius: 5px;">
+                        <p style="font-size: 0.9em; margin-top: 10px;">Mide el **RIESGO** (dispersión).[8] Un $\sigma$ alto = mayor incertidumbre.[10]</p>
+                    </section>
+                </div>
+                
+                <div class="highlight-box fragment fade-in" style="margin-top: 50px; background-color: #000000; border-left: 8px solid var(--heading-color);">
+                    **Clave:** Los Percentiles (ej. P10) indican la probabilidad de que el resultado sea mejor o peor que un umbral de riesgo específico.[11]
+                </div>
+                
+                <aside class="notes">
+                    Enfatizar que la desviación estándar es la métrica de riesgo que Montecarlo produce. Mostrar que el resultado es una curva, no un solo número. Los percentiles (ej. riesgo de perder dinero).
+                </aside>
+            </section>
+            
+            <section>
+                <h2>Demostración Práctica: El Lanzamiento de un Dado</h2>
+                <p>Aplicando la **Ley de los Grandes Números** a un dado de 6 caras.</p>
+                <p style="color: var(--accent-color); font-weight: bold; margin-bottom: 20px;">Valor Esperado Teórico = (1+2+3+4+5+6) / 6 = 3.5</p>
+
+                <div style="background-color: #1a1a1a; padding: 15px; border-radius: 8px; text-align: left; width: 90%; margin: 0 auto;">
+                    <pre style="font-size: 0.7em;"><code class="python" data-line-numbers="1-8">
+import random
+import numpy as np
+
+# Número de simulaciones (N)
+N = 1000 
+resultados = []
+
+for _ in range(N):
+    lanzamiento = random.randint(1, 6) # Simula un lanzamiento de dado
+    resultados.append(lanzamiento)
+
+promedio_simulado = np.mean(resultados)
+
+print(f"Número de simulaciones: {N}")
+print(f"Promedio Simulador (μ): {promedio_simulado:.4f}")
+print(f"El promedio debería acercarse a 3.5 a medida que N crece.")
+                    </code></pre>
+                </div>
+
+                <div class="highlight-box fragment fade-in" style="margin-top: 20px;">
+                    <p style="color: white; font-weight: bold;">Observación Clave: Al aumentar N (repeticiones), el promedio simulado se acerca más a 3.5.</p>
+                </div>
+                
+                <aside class="notes">
+                    Explicar el código: usamos random.randint para la aleatoriedad, la repetición con el bucle for, y numpy.mean para el análisis. La clave es la convergencia del promedio a 3.5 (el valor esperado).
+                </aside>
+            </section>
+
+            <section>
+                <h2>¿Para qué se usan? Aplicaciones Clave [4]</h2>
+                <ul style="list-style-type: disc; text-align: left; margin: 0 auto; width: 80%; color: white;">
+                    <li class="fragment fade-in-then-out">
+                        **Finanzas:** Análisis de riesgos, valoración de opciones complejas, y VaR (Valor en Riesgo) en portafolios de inversión.[1, 12]
+                    </li>
+                    <li class="fragment fade-in-then-out">
+                        **Ingeniería:** Simulación de fiabilidad, redes eléctricas y estimación de costos/duración de proyectos.[13, 14]
+                    </li>
+                    <li class="fragment fade-in-then-out">
+                        **Estadística / Ciencia de Datos:** Inferencia compleja, métodos MCMC y estimación de probabilidades raras.[1]
+                    </li>
+                    <li class="fragment fade-in">
+                        **Ejemplo Didáctico:** Estimación del valor de $\pi$ usando la proporción de puntos aleatorios dentro de un círculo.[16]
+                    </li>
+                </ul>
+                
+                <aside class="notes">
+                    Mencionar la versatilidad. Dar ejemplos concretos en cada área: Finanzas (opciones, VaR), Ingeniería (fiabilidad) y Estadística (MCMC). Finalizar con el ejemplo de Pi como demostración del principio.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Balance y Herramientas</h2>
+                <div class="r-hstack justify-content-center" style="margin-top: 30px;">
+                    <div style="width: 45%;">
+                        <p class="slide-title" style="color: #00ff7f;">Ventajas (Pros)</p>
+                        <ul style="list-style-type: none; font-size: 0.8em; text-align: left; color: white;">
+                            <li class="fragment fade-in">✅ Cuantifica explícitamente el Riesgo.[11]</li>
+                            <li class="fragment fade-in">✅ Maneja sistemas complejos y no lineales.[11]</li>
+                            <li class="fragment fade-in">✅ Resultados fáciles de interpretar (curvas).</li>
+                        </ul>
+                    </div>
+                    <div style="width: 45%;">
+                        <p class="slide-title" style="color: #ff6347;">Desafíos (Contras)</p>
+                        <ul style="list-style-type: none; font-size: 0.8em; text-align: left; color: white;">
+                            <li class="fragment fade-in">❌ Alto costo computacional (muchas iteraciones).[17]</li>
+                            <li class="fragment fade-in">❌ Depende de la calidad de los Inputs ("Basura entra...").[3]</li>
+                            <li class="fragment fade-in">❌ Produce un resultado **aproximado**.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="slide-title fragment fade-in" style="margin-top: 40px;">Herramientas Comunes</p>
+                <div class="r-hstack justify-content-center fragment fade-in" style="color: white;">
+                    <p style="margin-right: 30px; color: white;">**Excel / Add-ins:** (Crystal Ball, @Risk) [18, 6] - Para modelos sencillos.</p>
+                    <p style="color: white;">**Python:** (NumPy, SciPy) [17] - Para modelos complejos y de alta velocidad.</p>
+                </div>
+                
+                <aside class="notes">
+                    Resumir las ventajas (claridad del riesgo) y las desventajas (computacional y dependencia del input). Indicar las herramientas prácticas que el estudiante debe conocer (Excel y Python).
+                </aside>
+            </section>
+
+            <section>
+                <h2>Conclusión</h2>
+                <p style="margin-top: 40px; font-size: 1.2em; color: white;">La Simulación de Montecarlo transforma la incertidumbre de un problema en una **medida de probabilidad** práctica, permitiendo tomar **decisiones informadas** sobre el futuro.</p>
+                <h3 style="color: var(--accent-color); margin-top: 80px;">¡Gracias!</h3>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        // Inicializar Highlight.js para el código
+        hljs.highlightAll();
+
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            // Desactiva el manejo del historial para evitar el error 'Location.hash setter' en entornos de iframe.
+            history: false, 
+            hash: false,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealHighlight ],
+            dependencies: [
+                { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>
