@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="dist/theme/black.css" />
 
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<script src="plugin/math/math.js"></script>
   </head>
   <body>
     <div class="reveal">
@@ -142,33 +146,43 @@ caidas_dist_base = rv_discrete(
     </code></pre>
         </section>
 
-        <section>
-          <h2>Paso 2: Precisión (Cálculo de N)</h2>
-          <p>
-            Necesitamos saber cuántos días ($N$) simular para que sea preciso.
-          </p>
-          <p>
-            Usamos la fórmula: $N = \left(\frac{Z \cdot \sigma}{E}\right)^2$
-          </p>
-          <div
-            style="
-              background: #333;
-              border-radius: 10px;
-              padding: 15px;
-              margin-top: 20px;
-            "
-          >
-            <p style="color: #ffc93c">
-              <strong>Dilema:</strong> ¡No conocemos la volatilidad ($\sigma$)
-              del sistema!
-            </p>
-            <p style="margin-top: 15px">
-              <strong>Solución:</strong> Hacemos una
-              <strong>simulación piloto</strong> (N=1000) solo para estimar
-              $\sigma$ y luego calcular el $N$ real requerido.
-            </p>
-          </div>
-        </section>
+       <section>
+    <h2>Paso 2: La Ecuación de Precisión (N)</h2>
+    <p>Para que el resultado sea confiable (no solo una anécdota), necesitamos un N (número de días) grande.</p>
+    <p>La fórmula estadística para encontrar $N$ es:</p>
+    
+    $$N = \left(\frac{Z \cdot \sigma}{E}\right)^2$$
+
+    <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
+        <div>
+            <p style="color: #42f554;">✓ <strong>Z (Confianza):</strong></p>
+            <p>Lo tenemos (1.96)</p>
+        </div>
+        <div>
+            <p style="color: #42f554;">✓ <strong>E (Error):</strong></p>
+            <p>Lo tenemos (2% de la media)</p>
+        </div>
+        <div>
+            <p style="color: #ff6b6b;">✗ <strong>σ (Volatilidad):</strong></p>
+            <p>¡No la conocemos!</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Paso 2 (Cont.): El Dilema de $\sigma$</h2>
+    <p style="color: #ffc93c; font-size: 1.1em;">
+        Tenemos un dilema: No podemos calcular $N$ sin $\sigma$, ¡pero no podemos medir $\sigma$ sin haber simulado $N$ días!
+    </p>
+
+    <h3 style="margin-top: 40px;">La Solución: La Simulación Piloto</h3>
+    <p>Usamos un truco de dos pasos:</p>
+    
+    <ol style="width: 80%; margin: 20px auto;">
+        <li><strong>Correr un Piloto (N=1000):</strong> Simulamos 1,000 días solo para obtener una <strong>estimación</strong> de la volatilidad ($\sigma$) del sistema.</li>
+        <li style="margin-top: 15px;"><strong>Calcular N Real:</strong> Ahora sí, usamos esa $\sigma$ piloto en la fórmula para encontrar el $N$ final (ej. 1,168 días).</li>
+    </ol>
+</section>
 
         <section>
           <h2>Paso 3: Simulación Masiva (El Bucle)</h2>
@@ -332,7 +346,7 @@ Escenario E (μ=22, C Mejorada)                  [C.CC]                [DD.DD]
         slideNumber: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
       });
     </script>
   </body>
